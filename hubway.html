@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="en" />
+		
+
+
+<title>Dashboard</title>
+<link href="my.css" rel="stylesheet" type="text/css" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script src="http://d3js.org/d3.v2.min.js?2.10.0"></script>
+    <script src="xkcd.js"></script>
+
+<script type="text/javascript" src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+<link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+<!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
+
+<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.1.3"></script>
+
+<script type="text/javascript">
+function initialize() {
+	var stamen = new L.StamenTileLayer("toner-lite");
+	
+	var geojsonFeature = {"type": "FeatureCollection",                                                                                
+"features": [{ "type": "Feature", "id": 1, "properties": { "PK_UID": 1, "ID": 7.0, "TERMINAL_N": "A32000", "NAME": "Fan Pier" }, "geometry": { "type": "Point", "coordinates": [ -71.044624, 42.353412 ] } }
+,{ "type": "Feature", "id": 2, "properties": { "PK_UID": 2, "ID": 8.0, "TERMINAL_N": "A32001", "NAME": "Union Square - Brighton Ave. at Cambridge St." }, "geometry": { "type": "Point", "coordinates": [ -71.137313, 42.353334 ] } }
+,{ "type": "Feature", "id": 3, "properties": { "PK_UID": 3, "ID": 9.0, "TERMINAL_N": "A32002", "NAME": "Agganis Arena - 925 Comm Ave." }, "geometry": { "type": "Point", "coordinates": [ -71.116174, 42.351313 ] } }
+,{ "type": "Feature", "id": 4, "properties": { "PK_UID": 4, "ID": 10.0, "TERMINAL_N": "A32003", "NAME": "B.U. Central - 725 Comm. Ave." }, "geometry": { "type": "Point", "coordinates": [ -71.105884, 42.350075 ] } }
+,{ "type": "Feature", "id": 5, "properties": { "PK_UID": 5, "ID": 11.0, "TERMINAL_N": "A32004", "NAME": "Longwood Ave \/ Binney St" }, "geometry": { "type": "Point", "coordinates": [ -71.1065, 42.338629 ] } }
+,{ "type": "Feature", "id": 6, "properties": { "PK_UID": 6, "ID": 15.0, "TERMINAL_N": "A32005", "NAME": "Harvard Real Estate - Brighton Mills - 370 Western Ave" }, "geometry": { "type": "Point", "coordinates": [ -71.13802, 42.361667 ] } }
+,{ "type": "Feature", "id": 7, "properties": { "PK_UID": 7, "ID": 17.0, "TERMINAL_N": "A32006", "NAME": "Harvard University Housing - 111 Western Ave. at Soldiers Field Park" }, "geometry": { "type": "Point", "coordinates": [ -71.119581, 42.365074 ] } }
+,{ "type": "Feature", "id": 8, "properties": { "PK_UID": 8, "ID": 18.0, "TERMINAL_N": "A32007", "NAME": "Harvard Real Estate - 219 Western Ave. at North Harvard St." }, "geometry": { "type": "Point", "coordinates": [ -71.129791, 42.36337 ] } }
+,{ "type": "Feature", "id": 9, "properties": { "PK_UID": 9, "ID": 19.0, "TERMINAL_N": "A32008", "NAME": "Buswell Park" }, "geometry": { "type": "Point", "coordinates": [ -71.105828, 42.347527 ] } }
+,{ "type": "Feature", "id": 10, "properties": { "PK_UID": 10, "ID": 25.0, "TERMINAL_N": "A32009", "NAME": "Tremont St \/ W Newton St" }, "geometry": { "type": "Point", "coordinates": [ -71.076847, 42.341332 ] } }
+,{ "type": "Feature", "id": 11, "properties": { "PK_UID": 11, "ID": 22.0, "TERMINAL_N": "A32010", "NAME": "South Station - 700 Atlantic Ave." }, "geometry": { "type": "Point", "coordinates": [ -71.055547, 42.352175 ] } }
+,{ "type": "Feature", "id": 12, "properties": { "PK_UID": 12, "ID": 29.0, "TERMINAL_N": "A32011", "NAME": "Innovation Lab - 125 Western Ave. at Batten Way" }, "geometry": { "type": "Point", "coordinates": [ -71.124565, 42.363732 ] } }
+,{ "type": "Feature", "id": 13, "properties": { "PK_UID": 13, "ID": 41.0, "TERMINAL_N": "A32012", "NAME": "Packard's Corner - Comm. Ave. at Brighton Ave." }, "geometry": { "type": "Point", "coordinates": [ -71.123831, 42.352261 ] } }
+,{ "type": "Feature", "id": 14, "properties": { "PK_UID": 14, "ID": 66.0, "TERMINAL_N": "A32017", "NAME": "Allston Green District - Commonwealth Ave & Griggs St" }, "geometry": { "type": "Point", "coordinates": [ -71.13401, 42.348607 ] } }
+,{ "type": "Feature", "id": 15, "properties": { "PK_UID": 15, "ID": 52.0, "TERMINAL_N": "B32000", "NAME": "Newbury St \/ Hereford St" }, "geometry": { "type": "Point", "coordinates": [ -71.085954, 42.348717 ] } }
+,{ "type": "Feature", "id": 16, "properties": { "PK_UID": 16, "ID": 12.0, "TERMINAL_N": "B32002", "NAME": "Ruggles Station \/ Columbus Ave." }, "geometry": { "type": "Point", "coordinates": [ -71.088496, 42.335911 ] } }
+,{ "type": "Feature", "id": 17, "properties": { "PK_UID": 17, "ID": 14.0, "TERMINAL_N": "B32003", "NAME": "Louis Pasteur \/ Longwood Ave" }, "geometry": { "type": "Point", "coordinates": [ -71.102797, 42.337171 ] } }
+,{ "type": "Feature", "id": 18, "properties": { "PK_UID": 18, "ID": 20.0, "TERMINAL_N": "B32004", "NAME": "Aquarium Station - 200 Atlantic Ave." }, "geometry": { "type": "Point", "coordinates": [ -71.051601, 42.35977 ] } }
+,{ "type": "Feature", "id": 19, "properties": { "PK_UID": 19, "ID": 46.0, "TERMINAL_N": "B32005", "NAME": "Christian Science Plaza" }, "geometry": { "type": "Point", "coordinates": [ -71.085918, 42.343864 ] } }
+,{ "type": "Feature", "id": 20, "properties": { "PK_UID": 20, "ID": 3.0, "TERMINAL_N": "B32006", "NAME": "Colleges of the Fenway" }, "geometry": { "type": "Point", "coordinates": [ -71.100812, 42.340021 ] } }
+,{ "type": "Feature", "id": 21, "properties": { "PK_UID": 21, "ID": 24.0, "TERMINAL_N": "B32007", "NAME": "Seaport Square - Seaport Blvd. at Boston Wharf" }, "geometry": { "type": "Point", "coordinates": [ -71.045461, 42.351821 ] } }
+,{ "type": "Feature", "id": 22, "properties": { "PK_UID": 22, "ID": 23.0, "TERMINAL_N": "B32008", "NAME": "Mayor Thomas M. Menino - Government Center" }, "geometry": { "type": "Point", "coordinates": [ -71.059364, 42.359677 ] } }
+,{ "type": "Feature", "id": 23, "properties": { "PK_UID": 23, "ID": 34.0, "TERMINAL_N": "B32009", "NAME": "Overland St at Brookline Ave" }, "geometry": { "type": "Point", "coordinates": [ -71.099855, 42.346171 ] } }
+,{ "type": "Feature", "id": 24, "properties": { "PK_UID": 24, "ID": 33.0, "TERMINAL_N": "B32010", "NAME": "Kenmore Sq \/ Comm Ave" }, "geometry": { "type": "Point", "coordinates": [ -71.096831, 42.349046 ] } }
+,{ "type": "Feature", "id": 25, "properties": { "PK_UID": 25, "ID": 45.0, "TERMINAL_N": "B32011", "NAME": "Yawkey Way at Boylston St." }, "geometry": { "type": "Point", "coordinates": [ -71.09788, 42.344763 ] } }
+,{ "type": "Feature", "id": 26, "properties": { "PK_UID": 26, "ID": 5.0, "TERMINAL_N": "B32012", "NAME": "Northeastern U \/ North Parking Lot" }, "geometry": { "type": "Point", "coordinates": [ -71.090179, 42.341814 ] } }
+,{ "type": "Feature", "id": 27, "properties": { "PK_UID": 27, "ID": 30.0, "TERMINAL_N": "B32013", "NAME": "Brigham Cir \/ Huntington Ave" }, "geometry": { "type": "Point", "coordinates": [ -71.105221, 42.334073 ] } }
+,{ "type": "Feature", "id": 28, "properties": { "PK_UID": 28, "ID": 31.0, "TERMINAL_N": "B32014", "NAME": "Seaport Hotel" }, "geometry": { "type": "Point", "coordinates": [ -71.041747, 42.348833 ] } }
+,{ "type": "Feature", "id": 29, "properties": { "PK_UID": 29, "ID": 32.0, "TERMINAL_N": "B32015", "NAME": "Landmark Centre" }, "geometry": { "type": "Point", "coordinates": [ -71.102221, 42.343912 ] } }
+,{ "type": "Feature", "id": 30, "properties": { "PK_UID": 30, "ID": 53.0, "TERMINAL_N": "B32016", "NAME": "Beacon St \/ Mass Ave" }, "geometry": { "type": "Point", "coordinates": [ -71.089886, 42.350851 ] } }
+,{ "type": "Feature", "id": 31, "properties": { "PK_UID": 31, "ID": 56.0, "TERMINAL_N": "B32017", "NAME": "Dudley Square" }, "geometry": { "type": "Point", "coordinates": [ -71.0833545, 42.3281898 ] } }
+,{ "type": "Feature", "id": 32, "properties": { "PK_UID": 32, "ID": 55.0, "TERMINAL_N": "B32018", "NAME": "Boylston \/ Mass Ave" }, "geometry": { "type": "Point", "coordinates": [ -71.088088, 42.347265 ] } }
+,{ "type": "Feature", "id": 33, "properties": { "PK_UID": 33, "ID": 62.0, "TERMINAL_N": "B32019", "NAME": "Longwood Ave\/Riverway" }, "geometry": { "type": "Point", "coordinates": [ -71.109927, 42.340299 ] } }
+,{ "type": "Feature", "id": 34, "properties": { "PK_UID": 34, "ID": 4.0, "TERMINAL_N": "C32000", "NAME": "Tremont St. at Berkeley St." }, "geometry": { "type": "Point", "coordinates": [ -71.069616, 42.345392 ] } }
+,{ "type": "Feature", "id": 35, "properties": { "PK_UID": 35, "ID": 27.0, "TERMINAL_N": "C32001", "NAME": "Roxbury Crossing Station" }, "geometry": { "type": "Point", "coordinates": [ -71.094734, 42.331567 ] } }
+,{ "type": "Feature", "id": 36, "properties": { "PK_UID": 36, "ID": 13.0, "TERMINAL_N": "C32002", "NAME": "Boston Medical Center - 721 Mass. Ave." }, "geometry": { "type": "Point", "coordinates": [ -71.07403, 42.334057 ] } }
+,{ "type": "Feature", "id": 37, "properties": { "PK_UID": 37, "ID": 16.0, "TERMINAL_N": "C32003", "NAME": "Back Bay \/ South End Station" }, "geometry": { "type": "Point", "coordinates": [ -71.076163, 42.347433 ] } }
+,{ "type": "Feature", "id": 38, "properties": { "PK_UID": 38, "ID": 57.0, "TERMINAL_N": "C32004", "NAME": "Columbus Ave. at Mass. Ave." }, "geometry": { "type": "Point", "coordinates": [ -71.081572, 42.340799 ] } }
+,{ "type": "Feature", "id": 39, "properties": { "PK_UID": 39, "ID": 51.0, "TERMINAL_N": "C32005", "NAME": "Washington St. at Lenox St." }, "geometry": { "type": "Point", "coordinates": [ -71.0790969, 42.3348756 ] } }
+,{ "type": "Feature", "id": 40, "properties": { "PK_UID": 40, "ID": 39.0, "TERMINAL_N": "C32006", "NAME": "Washington St. at Rutland St." }, "geometry": { "type": "Point", "coordinates": [ -71.074182, 42.338623 ] } }
+,{ "type": "Feature", "id": 41, "properties": { "PK_UID": 41, "ID": 21.0, "TERMINAL_N": "C32007", "NAME": "Prudential Center \/ Belvidere" }, "geometry": { "type": "Point", "coordinates": [ -71.082578, 42.345959 ] } }
+,{ "type": "Feature", "id": 42, "properties": { "PK_UID": 42, "ID": 61.0, "TERMINAL_N": "C32008", "NAME": "Boylston at Fairfield" }, "geometry": { "type": "Point", "coordinates": [ -71.082674, 42.348323 ] } }
+,{ "type": "Feature", "id": 43, "properties": { "PK_UID": 43, "ID": 63.0, "TERMINAL_N": "C32009", "NAME": "Dorchester Ave. at Gillette Park" }, "geometry": { "type": "Point", "coordinates": [ -71.057054, 42.344023 ] } }
+,{ "type": "Feature", "id": 44, "properties": { "PK_UID": 44, "ID": 64.0, "TERMINAL_N": "C32010", "NAME": "Congress \/ Sleeper" }, "geometry": { "type": "Point", "coordinates": [ -71.0496, 42.3511 ] } }
+,{ "type": "Feature", "id": 45, "properties": { "PK_UID": 45, "ID": 83.0, "TERMINAL_N": "C32011", "NAME": "South Bay Plaza" }, "geometry": { "type": "Point", "coordinates": [ -71.065928, 42.325941 ] } }
+,{ "type": "Feature", "id": 46, "properties": { "PK_UID": 46, "ID": 85.0, "TERMINAL_N": "C32012", "NAME": "Andrew Station - Dorchester Ave at Humboldt Pl" }, "geometry": { "type": "Point", "coordinates": [ -71.057007, 42.330825 ] } }
+,{ "type": "Feature", "id": 47, "properties": { "PK_UID": 47, "ID": 93.0, "TERMINAL_N": "C32013", "NAME": "JFK \/ UMASS Station" }, "geometry": { "type": "Point", "coordinates": [ -71.051122, 42.320494 ] } }
+,{ "type": "Feature", "id": 48, "properties": { "PK_UID": 48, "ID": 92.0, "TERMINAL_N": "C32014", "NAME": "University of Massachusetts Boston" }, "geometry": { "type": "Point", "coordinates": [ -71.035705, 42.311819 ] } }
+,{ "type": "Feature", "id": 49, "properties": { "PK_UID": 49, "ID": 6.0, "TERMINAL_N": "D32000", "NAME": "Cambridge St. at Joy St." }, "geometry": { "type": "Point", "coordinates": [ -71.06514, 42.361285 ] } }
+,{ "type": "Feature", "id": 50, "properties": { "PK_UID": 50, "ID": 37.0, "TERMINAL_N": "D32001", "NAME": "New Balance - 38 Guest St." }, "geometry": { "type": "Point", "coordinates": [ -71.146452, 42.357247 ] } }
+,{ "type": "Feature", "id": 51, "properties": { "PK_UID": 51, "ID": 26.0, "TERMINAL_N": "D32002", "NAME": "Washington St. at Waltham St." }, "geometry": { "type": "Point", "coordinates": [ -71.068922, 42.341522 ] } }
+,{ "type": "Feature", "id": 52, "properties": { "PK_UID": 52, "ID": 38.0, "TERMINAL_N": "D32003", "NAME": "TD Garden - Legends Way" }, "geometry": { "type": "Point", "coordinates": [ -71.060868, 42.366231 ] } }
+,{ "type": "Feature", "id": 53, "properties": { "PK_UID": 53, "ID": 35.0, "TERMINAL_N": "D32004", "NAME": "Summer St. \/ Arch St." }, "geometry": { "type": "Point", "coordinates": [ -71.05896, 42.354594 ] } }
+,{ "type": "Feature", "id": 54, "properties": { "PK_UID": 54, "ID": 36.0, "TERMINAL_N": "D32005", "NAME": "Boston Public Library - 700 Boylston St." }, "geometry": { "type": "Point", "coordinates": [ -71.077303, 42.349673 ] } }
+,{ "type": "Feature", "id": 55, "properties": { "PK_UID": 55, "ID": 40.0, "TERMINAL_N": "D32006", "NAME": "Lewis Wharf - Atlantic Ave." }, "geometry": { "type": "Point", "coordinates": [ -71.050877, 42.363871 ] } }
+,{ "type": "Feature", "id": 56, "properties": { "PK_UID": 56, "ID": 42.0, "TERMINAL_N": "D32007", "NAME": "Boylston St. at Arlington St." }, "geometry": { "type": "Point", "coordinates": [ -71.070378, 42.352096 ] } }
+,{ "type": "Feature", "id": 57, "properties": { "PK_UID": 57, "ID": 43.0, "TERMINAL_N": "D32008", "NAME": "Rowes Wharf - Atlantic Ave" }, "geometry": { "type": "Point", "coordinates": [ -71.050699, 42.357143 ] } }
+,{ "type": "Feature", "id": 58, "properties": { "PK_UID": 58, "ID": 44.0, "TERMINAL_N": "D32009", "NAME": "Faneuil Hall - Union St. at North St." }, "geometry": { "type": "Point", "coordinates": [ -71.056868, 42.360583 ] } }
+,{ "type": "Feature", "id": 59, "properties": { "PK_UID": 59, "ID": 47.0, "TERMINAL_N": "D32010", "NAME": "Cross St. at Hanover St." }, "geometry": { "type": "Point", "coordinates": [ -71.056067, 42.362811 ] } }
+,{ "type": "Feature", "id": 60, "properties": { "PK_UID": 60, "ID": 49.0, "TERMINAL_N": "D32011", "NAME": "Stuart St. at Charles St." }, "geometry": { "type": "Point", "coordinates": [ -71.066289, 42.351146 ] } }
+,{ "type": "Feature", "id": 61, "properties": { "PK_UID": 61, "ID": 48.0, "TERMINAL_N": "D32012", "NAME": "Post Office Square" }, "geometry": { "type": "Point", "coordinates": [ -71.055407, 42.356755 ] } }
+,{ "type": "Feature", "id": 62, "properties": { "PK_UID": 62, "ID": 50.0, "TERMINAL_N": "D32013", "NAME": "Boylston St \/ Berkeley St" }, "geometry": { "type": "Point", "coordinates": [ -71.073644, 42.350989 ] } }
+,{ "type": "Feature", "id": 63, "properties": { "PK_UID": 63, "ID": 54.0, "TERMINAL_N": "D32014", "NAME": "Tremont St \/ West St" }, "geometry": { "type": "Point", "coordinates": [ -71.063348, 42.354979 ] } }
+,{ "type": "Feature", "id": 64, "properties": { "PK_UID": 64, "ID": 59.0, "TERMINAL_N": "D32015", "NAME": "Chinatown Gate Plaza - Surface Rd. at Beach St." }, "geometry": { "type": "Point", "coordinates": [ -71.059367, 42.351356 ] } }
+,{ "type": "Feature", "id": 65, "properties": { "PK_UID": 65, "ID": 60.0, "TERMINAL_N": "D32016", "NAME": "Charles Circle - Charles St. at Cambridge St." }, "geometry": { "type": "Point", "coordinates": [ -71.07131, 42.360877 ] } }
+,{ "type": "Feature", "id": 66, "properties": { "PK_UID": 66, "ID": 58.0, "TERMINAL_N": "D32017", "NAME": "The Esplanade - Beacon St. at Arlington St." }, "geometry": { "type": "Point", "coordinates": [ -71.07278, 42.355596 ] } }
+,{ "type": "Feature", "id": 67, "properties": { "PK_UID": 67, "ID": 65.0, "TERMINAL_N": "D32018", "NAME": "Boston Convention & Exhibition Center" }, "geometry": { "type": "Point", "coordinates": [ -71.0441, 42.3475 ] } }
+,{ "type": "Feature", "id": 68, "properties": { "PK_UID": 68, "ID": 81.0, "TERMINAL_N": "D32019", "NAME": "Boylston St \/ Washington St" }, "geometry": { "type": "Point", "coordinates": [ -71.062679, 42.352409 ] } }
+,{ "type": "Feature", "id": 69, "properties": { "PK_UID": 69, "ID": 94.0, "TERMINAL_N": "D32020", "NAME": "Charlestown - Main St at Austin St" }, "geometry": { "type": "Point", "coordinates": [ -71.064608, 42.375603 ] } }
+,{ "type": "Feature", "id": 70, "properties": { "PK_UID": 70, "ID": 98.0, "TERMINAL_N": "D32021", "NAME": "Charlestown - Warren St at Chelsea St" }, "geometry": { "type": "Point", "coordinates": [ -71.060292, 42.371848 ] } }
+,{ "type": "Feature", "id": 71, "properties": { "PK_UID": 71, "ID": 69.0, "TERMINAL_N": "K32001", "NAME": "Coolidge Corner - Beacon St @ Centre St" }, "geometry": { "type": "Point", "coordinates": [ -71.123338, 42.341598 ] } }
+,{ "type": "Feature", "id": 72, "properties": { "PK_UID": 72, "ID": 82.0, "TERMINAL_N": "K32002", "NAME": "Brookline Town Hall \/ Library Washington St" }, "geometry": { "type": "Point", "coordinates": [ -71.120526, 42.333689 ] } }
+,{ "type": "Feature", "id": 73, "properties": { "PK_UID": 73, "ID": 86.0, "TERMINAL_N": "K32003", "NAME": "Brookline Village - Station Street @ MBTA" }, "geometry": { "type": "Point", "coordinates": [ -71.116205, 42.332799 ] } }
+,{ "type": "Feature", "id": 74, "properties": { "PK_UID": 74, "ID": 90.0, "TERMINAL_N": "M32001", "NAME": "Lechmere Station at Cambridge St \/ First St" }, "geometry": { "type": "Point", "coordinates": [ -71.07711, 42.3707 ] } }
+,{ "type": "Feature", "id": 75, "properties": { "PK_UID": 75, "ID": 91.0, "TERMINAL_N": "M32002", "NAME": "One Kendall Square at Hampshire St \/ Portland St" }, "geometry": { "type": "Point", "coordinates": [ -71.09169, 42.366277 ] } }
+,{ "type": "Feature", "id": 76, "properties": { "PK_UID": 76, "ID": 72.0, "TERMINAL_N": "M32003", "NAME": "One Broadway \/ Kendall Sq at Main St \/ 3rd St" }, "geometry": { "type": "Point", "coordinates": [ -71.084105, 42.362613 ] } }
+,{ "type": "Feature", "id": 77, "properties": { "PK_UID": 77, "ID": 80.0, "TERMINAL_N": "M32005", "NAME": "MIT Stata Center at Vassar St \/ Main St" }, "geometry": { "type": "Point", "coordinates": [ -71.090188, 42.362429 ] } }
+,{ "type": "Feature", "id": 78, "properties": { "PK_UID": 78, "ID": 67.0, "TERMINAL_N": "M32006", "NAME": "MIT at Mass Ave \/ Amherst St" }, "geometry": { "type": "Point", "coordinates": [ -71.093198, 42.3581 ] } }
+,{ "type": "Feature", "id": 79, "properties": { "PK_UID": 79, "ID": 95.0, "TERMINAL_N": "M32007", "NAME": "Cambridge St - at Columbia St \/ Webster Ave" }, "geometry": { "type": "Point", "coordinates": [ -71.094445, 42.372969 ] } }
+,{ "type": "Feature", "id": 80, "properties": { "PK_UID": 80, "ID": 75.0, "TERMINAL_N": "M32009", "NAME": "Lafayette Square at Mass Ave \/ Main St \/ Columbia St" }, "geometry": { "type": "Point", "coordinates": [ -71.10042, 42.363562 ] } }
+,{ "type": "Feature", "id": 81, "properties": { "PK_UID": 81, "ID": 88.0, "TERMINAL_N": "M32010", "NAME": "Inman Square at Vellucci Plaza \/ Hampshire St" }, "geometry": { "type": "Point", "coordinates": [ -71.101427, 42.374035 ] } }
+,{ "type": "Feature", "id": 82, "properties": { "PK_UID": 82, "ID": 68.0, "TERMINAL_N": "M32011", "NAME": "Central Square at Mass Ave \/ Essex St" }, "geometry": { "type": "Point", "coordinates": [ -71.1031, 42.36507 ] } }
+,{ "type": "Feature", "id": 83, "properties": { "PK_UID": 83, "ID": 76.0, "TERMINAL_N": "M32012", "NAME": "Central Sq Post Office \/ Cambridge City Hall at Mass Ave \/ Pleasant St" }, "geometry": { "type": "Point", "coordinates": [ -71.105495, 42.366426 ] } }
+,{ "type": "Feature", "id": 84, "properties": { "PK_UID": 84, "ID": 96.0, "TERMINAL_N": "M32013", "NAME": "Cambridge Main Library at Broadway \/ Trowbridge St" }, "geometry": { "type": "Point", "coordinates": [ -71.111075, 42.373379 ] } }
+,{ "type": "Feature", "id": 85, "properties": { "PK_UID": 85, "ID": 87.0, "TERMINAL_N": "M32014", "NAME": "Harvard University Housing - 115 Putnam Ave at Peabody Terrace" }, "geometry": { "type": "Point", "coordinates": [ -71.114214, 42.366621 ] } }
+,{ "type": "Feature", "id": 86, "properties": { "PK_UID": 86, "ID": 97.0, "TERMINAL_N": "M32015", "NAME": "Harvard  University River Houses at DeWolfe St \/ Cowperthwaite St" }, "geometry": { "type": "Point", "coordinates": [ -71.117152, 42.369182 ] } }
+,{ "type": "Feature", "id": 87, "properties": { "PK_UID": 87, "ID": 70.0, "TERMINAL_N": "M32016", "NAME": "Harvard Kennedy School at Bennett St \/ Eliot St" }, "geometry": { "type": "Point", "coordinates": [ -71.121851, 42.372244 ] } }
+,{ "type": "Feature", "id": 88, "properties": { "PK_UID": 88, "ID": 73.0, "TERMINAL_N": "M32017", "NAME": "Harvard Square at Brattle St \/ Eliot St" }, "geometry": { "type": "Point", "coordinates": [ -71.120886, 42.373231 ] } }
+,{ "type": "Feature", "id": 89, "properties": { "PK_UID": 89, "ID": 74.0, "TERMINAL_N": "M32018", "NAME": "Harvard Square at Mass Ave\/ Dunster" }, "geometry": { "type": "Point", "coordinates": [ -71.118579, 42.373268 ] } }
+,{ "type": "Feature", "id": 90, "properties": { "PK_UID": 90, "ID": 84.0, "TERMINAL_N": "M32019", "NAME": "CambridgeSide Galleria - CambridgeSide PL at Land Blvd" }, "geometry": { "type": "Point", "coordinates": [ -71.076472, 42.366981 ] } }
+,{ "type": "Feature", "id": 91, "properties": { "PK_UID": 91, "ID": 89.0, "TERMINAL_N": "M32020", "NAME": "Harvard Law School at Mass Ave \/ Jarvis St" }, "geometry": { "type": "Point", "coordinates": [ -71.119945, 42.379011 ] } }
+,{ "type": "Feature", "id": 92, "properties": { "PK_UID": 92, "ID": 77.0, "TERMINAL_N": "S32001", "NAME": "Somerville City Hall" }, "geometry": { "type": "Point", "coordinates": [ -71.096413, 42.386428 ] } }
+,{ "type": "Feature", "id": 93, "properties": { "PK_UID": 93, "ID": 78.0, "TERMINAL_N": "S32002", "NAME": "Union Square - Somerville" }, "geometry": { "type": "Point", "coordinates": [ -71.095319, 42.379637 ] } }
+,{ "type": "Feature", "id": 94, "properties": { "PK_UID": 94, "ID": 79.0, "TERMINAL_N": "S32003", "NAME": "Beacon St at Washington \/ Kirkland" }, "geometry": { "type": "Point", "coordinates": [ -71.106541, 42.378551 ] } }
+,{ "type": "Feature", "id": 95, "properties": { "PK_UID": 95, "ID": 71.0, "TERMINAL_N": "S32004", "NAME": "Conway Park - Somerville Avenue" }, "geometry": { "type": "Point", "coordinates": [ -71.107593, 42.383405 ] } }
+]};
+
+	var bikeIcon = L.icon({
+		iconUrl: 'blank.png',
+		iconSize: [16, 16],
+		iconAnchor: [8, 8],
+		popupAnchor: [0, -4]
+	});
+	
+	function onEachFeature(feature, layer) {
+		var popupContent = '<div id="graph" class="graph"><p>' +
+				feature.properties.NAME + "</p></div>";
+
+		if (feature.properties && feature.properties.popupContent) {
+			popupContent += feature.properties.popupContent;
+		}
+		layer.bindPopup(popupContent);
+	}
+	
+	
+	var citybike = L.geoJson(geojsonFeature, {
+		pointToLayer: function (feature, latlng) {
+			return L.marker(latlng, {icon: bikeIcon});
+		},
+		onEachFeature: onEachFeature
+	});
+	
+				var cloud = new L.TileLayer.WMS("http://wms.qgiscloud.com/anitagraser/hubway_cloud1", {
+				layers: 'stations_in_out_flows',
+				format: 'image/png',
+				transparent: 'TRUE',
+				version: '1.1.1',
+				srs: 'EPSG:3857',
+				attribution: 'Data: Hubways'
+			});
+	
+	var map = new L.Map("map", {
+		center: new L.LatLng(42.350851,-71.089886),
+		zoom: 13,
+		layers: [stamen,citybike,cloud],
+	});
+		
+
+}
+</script>
+		
+</head>
+
+<body onload="initialize()">
+	<div id="map" class="map"></div>
+	
+</body>
+</html>
